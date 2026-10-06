@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lapor Fasilitas Kampus</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav>
+        <div class="logo">Lapor<span>Kampus</span></div>
+
+        <div class="nav-menu">
+            <a href="#beranda">Beranda</a>
+            <a href="#pengaduan">Buat Pengaduan</a>
+            <a href="#status">Status</a>
+            <a href="#riwayat">Riwayat</a>
+            <button onclick="openLogin()">Login</button>
+        </div>
+    </nav>
+
+    <!-- BERANDA -->
+    <section id="beranda" class="hero">
+        <div class="hero-text">
+            <p class="label">LAPOR FASILITAS KAMPUS</p>
+
+            <h1>
+                Laporkan Fasilitas Kampus
+                <span>Dengan Mudah</span>
+            </h1>
+
+            <p>
+                Temukan fasilitas kampus yang rusak atau bermasalah?
+                Sampaikan laporanmu agar dapat segera ditindaklanjuti.
+            </p>
+
+            <button class="btn-primary" onclick="scrollToPengaduan()">
+                Buat Pengaduan
+            </button>
+        </div>
+
+        <div class="hero-card">
+            <div class="icon-big">🏫</div>
+            <h3>Peduli Fasilitas Kampus</h3>
+            <p>
+                Bantu menciptakan lingkungan kampus yang nyaman
+                dengan melaporkan fasilitas yang bermasalah.
+            </p>
+        </div>
+    </section>
+
+
+    <!-- FITUR -->
+    <section class="features">
+        <h2>Fitur Utama</h2>
+        <p class="subtitle">Semua kebutuhan pelaporan dalam satu website</p>
+
+        <div class="feature-container">
+
+            <div class="feature-box">
+                <div class="feature-icon">📝</div>
+                <h3>Buat Pengaduan</h3>
+                <p>
+                    Laporkan fasilitas kampus yang mengalami kerusakan
+                    dengan mengisi informasi yang diperlukan.
+                </p>
+            </div>
+
+            <div class="feature-box">
+                <div class="feature-icon">📷</div>
+                <h3>Upload Foto</h3>
+                <p>
+                    Tambahkan foto sebagai bukti kondisi fasilitas
+                    yang kamu laporkan.
+                </p>
+            </div>
+
+            <div class="feature-box">
+                <div class="feature-icon">📊</div>
+                <h3>Status Pengaduan</h3>
+                <p>
+                    Pantau perkembangan laporan mulai dari diajukan,
+                    diproses hingga selesai.
+                </p>
+            </div>
+
+            <div class="feature-box">
+                <div class="feature-icon">📜</div>
+                <h3>Riwayat Pengaduan</h3>
+                <p>
+                    Lihat kembali semua laporan yang pernah kamu buat.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- FORM PENGADUAN -->
+    <section id="pengaduan" class="form-section">
+
+        <div class="section-title">
+            <h2>Buat Pengaduan</h2>
+            <p>Sampaikan masalah fasilitas kampus yang kamu temukan.</p>
+        </div>
+
+        <form id="reportForm">
+
+            <div class="form-group">
+                <label>Lokasi Fasilitas</label>
+                <input
+                    type="text"
+                    id="lokasi"
+                    placeholder="Contoh: Gedung A Lantai 2"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label>Jenis Fasilitas</label>
+
+                <select id="fasilitas" required>
+                    <option value="">-- Pilih Fasilitas --</option>
+                    <option value="Kursi">Kursi</option>
+                    <option value="Meja">Meja</option>
+                    <option value="AC">AC</option>
+                    <option value="Proyektor">Proyektor</option>
+                    <option value="Lampu">Lampu</option>
+                    <option value="Toilet">Toilet</option>
+                    <option value="Komputer">Komputer</option>
+                    <option value="Lainnya">Lainnya</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Keterangan</label>
+
+                <textarea
+                    id="keterangan"
+                    rows="5"
+                    placeholder="Jelaskan kondisi fasilitas..."
+                    required
+                ></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>Upload Foto</label>
+
+                <input
+                    type="file"
+                    id="foto"
+                    accept="image/*"
+                >
+
+                <small>Format JPG, PNG, atau JPEG</small>
+            </div>
+
+            <div id="preview-container">
+                <img id="preview" src="" alt="Preview Foto">
+            </div>
+
+            <button type="submit" class="btn-primary">
+                Kirim Pengaduan
+            </button>
+
+        </form>
+
+    </section>
+
+
+    <!-- STATUS -->
+    <section id="status" class="status-section">
+
+        <div class="section-title">
+            <h2>Status Pengaduan</h2>
+            <p>Pantau perkembangan laporan kamu.</p>
+        </div>
+
+        <div id="statusContainer">
+
+            <div class="empty-status">
+                Belum ada pengaduan.
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- RIWAYAT -->
+    <section id="riwayat" class="history-section">
+
+        <div class="section-title">
+            <h2>Riwayat Pengaduan</h2>
+            <p>Daftar pengaduan yang pernah kamu buat.</p>
+        </div>
+
+        <div id="historyContainer">
+
+            <div class="empty-status">
+                Belum ada riwayat pengaduan.
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- MODAL LOGIN -->
+    <div id="loginModal" class="modal">
+
+        <div class="modal-content">
+
+            <span class="close" onclick="closeLogin()">&times;</span>
+
+            <h2>Login</h2>
+
+            <p>Masuk ke akun mahasiswa kamu.</p>
+
+            <input
+                type="email"
+                id="email"
+                placeholder="Email"
+            >
+
+            <input
+                type="password"
+                id="password"
+                placeholder="Password"
+            >
+
+            <button class="btn-primary" onclick="login()">
+                Login
+            </button>
+
+            <p class="register-text">
+                Belum punya akun?
+                <a href="#" onclick="register()">Register</a>
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- FOOTER -->
+    <footer>
+        <h3>LaporKampus</h3>
+        <p>
+            Website pelaporan fasilitas kampus untuk lingkungan
+            kampus yang lebih nyaman.
+        </p>
+
+        <p class="copyright">
+            © 2026 LaporKampus
+        </p>
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
